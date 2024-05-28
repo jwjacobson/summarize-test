@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "summarize_gutenberg"
+version = "0.0.2"
+dependencies = [
+    "tinydb",
+    "requests",
+    "rich",
+    "typer",
+    "transformers",
+    "torch",
+]
+requires-python = ">=3.12"
+authors = [
+  { name="Jeff Jacobson", email="jeffjacobsonhimself@gmail.com" },
+]
+description = "Generate abstractive summaries of Project Gutenberg tests"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["abstractive summary", "literature", "books", "LLM", "Pegasus"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet",
+    "Topic :: Other/Nonlisted Topic",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Terminals :: Terminal Emulators/X Terminals",
+    "Topic :: Text Processing :: Linguistic"
+]
+
+[project.urls]
+Homepage = "https://github.com/jwjacobson/summarize"
+Issues = "https://github.com/jwjacobson/summarize/issues"
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "pytest-cov",
+]
+tools = [
+  "ruff",
+  "pre-commit",
+]
+
+[project.scripts]
+summarize = "summarize_gutenberg.cli:app"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+
