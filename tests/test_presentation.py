@@ -26,3 +26,23 @@ def test_book_field_access():
     assert book.author == "Wilfred Sinecure"
     assert book.url == "https://www.gutenberg.org/"
     assert book.filename == "yesterdaystomorrows.txt"
+
+def test_from_dict():
+    book1 = Book(
+        id=1,
+        title="Yesterday's Tomorrows",
+        author="Wilfred Sinecure",
+        url="https://www.gutenberg.org/",
+        filename="yesterdaystomorrows.txt",
+    )
+
+    book2_dict = {
+        "id": 1,
+        "title": "Yesterday's Tomorrows",
+        "author": "Wilfred Sinecure",
+        "url": "https://www.gutenberg.org/",
+        "filename": "yesterdaystomorrows.txt",
+    }
+    book2 = Book.from_dict(book2_dict)
+
+    assert book1 == book2
