@@ -12,7 +12,7 @@ def test_assertion_fail():
 def test_assertion_in():
     assert 'y' in 'pybites'
 
-@pytest.fixture()
+@pytest.fixture(scope="module")
 def book_fixture():
     """
     Create a Book.
