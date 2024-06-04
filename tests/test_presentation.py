@@ -55,3 +55,11 @@ def test_create_filename():
     title = 'Dracula'
     expected_output = 'dracula.txt'
     assert create_filename(title) == expected_output
+
+titles = [
+    ('Dracula', 'dracula.txt'), # one word
+]
+
+@pytest.mark.parametrize('input, expected', titles)
+def test_create_filenames(input, expected):
+    assert create_filename(input) == expected, f'Expected {expected}, but got {create_filename(input)}'
