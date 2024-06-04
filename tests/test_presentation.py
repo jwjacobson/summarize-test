@@ -1,6 +1,7 @@
 import pytest
 
 from summarize_gutenberg.api import Book
+from summarize_gutenberg.get_books import create_filename
 
 def test_assertion():
     assert 1 == 1
@@ -49,3 +50,8 @@ def test_from_dict_with_fixture(book_fixture):
     book2 = Book.from_dict(book2_dict)
 
     assert book1 == book2
+
+def test_create_filename():
+    title = 'Dracula'
+    expected_output = 'dracula.txt'
+    assert create_filename(title) == expected_output
