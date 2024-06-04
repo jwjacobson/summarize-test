@@ -6,3 +6,6 @@ def test_assertion():
 @pytest.mark.xfail(reason="Designed to fail")
 def test_assertion_fail():
     assert 1 == 2
+
+def test_assertion_in():
+    assert 'y' in 'pybites'
