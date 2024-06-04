@@ -12,7 +12,11 @@ def test_assertion_fail():
 def test_assertion_in():
     assert 'y' in 'pybites'
 
-def test_book_field_access():
+@pytest.fixture()
+def book_fixture():
+    """
+    Create a Book.
+    """
     book = Book(
         id=1,
         title="Yesterday's Tomorrows",
@@ -21,20 +25,19 @@ def test_book_field_access():
         filename="yesterdaystomorrows.txt",
     )
 
+    return book
+
+def test_book_field_access_with_fixture(book_fixture):
+    book = book_fixture
+
     assert book.id == 1
     assert book.title == "Yesterday's Tomorrows"
     assert book.author == "Wilfred Sinecure"
     assert book.url == "https://www.gutenberg.org/"
     assert book.filename == "yesterdaystomorrows.txt"
 
-def test_from_dict():
-    book1 = Book(
-        id=1,
-        title="Yesterday's Tomorrows",
-        author="Wilfred Sinecure",
-        url="https://www.gutenberg.org/",
-        filename="yesterdaystomorrows.txt",
-    )
+def test_from_dict_with_fixture(book_fixture):
+    book1 = book_fixture
 
     book2_dict = {
         "id": 1,
